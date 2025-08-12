@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pega Architect's Profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for "Inter" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #3b82f6; /* A vibrant blue for accents */
+            --background-color: #0f172a; /* Slate-900 */
+            --card-background: #1e293b; /* Slate-800 */
+            --text-color: #e2e8f0; /* Slate-200 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary-color) 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .typing-container {
+            display: inline-block;
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--primary-color);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        #dino-game-canvas {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            touch-action: none;
+        }
+        /* Custom animation for the Pega CLSA logo */
+        @keyframes zoom-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .zoom-pulse-animation {
+            animation: zoom-pulse 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-sm p-6 shadow-xl">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <!-- Pega CLSA Logo -->
+                <img src="https://academyartifacts.s3.amazonaws.com/Images/Prod/PEGACLSA74V1P_Current.png" 
+                     alt="Pega CLSA Logo" 
+                     class="h-10 hover:scale-105 transition-transform duration-300 shadow-lg rounded-lg">
+                <!-- Title -->
+                <a href="#" class="text-3xl font-bold text-gradient">Pega Architect</a>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap space-x-6 text-lg font-semibold">
+                    <li><a href="#about" class="hover:text-sky-400 transition-colors duration-300">About</a></li>
+                    <li><a href="#skills" class="hover:text-sky-400 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-sky-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#dino-game" class="hover:text-sky-400 transition-colors duration-300">Fun</a></li>
+                    <li><a href="#contact" class="hover:text-sky-400 transition-colors duration-300">Contact</a></li>
+                    <li>
+                        <!-- Add your resume link in the href and update the filename -->
+                        <a href="your-resume-link.pdf" download="Your-Name-Resume.pdf" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 text-base">
+                            <i class="fas fa-download mr-2"></i> Resume
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="container mx-auto p-8 lg:p-12">
+
+            <!-- Hero Section with Typing Effect -->
+            <section id="hero" class="text-center py-16 md:py-24">
+                <!-- Container for the animated logo and profile picture -->
+                <div class="flex justify-center items-center gap-6 mb-6">
+                     <!-- Animated Pega CLSA Logo -->
+                    <img src="https://academyartifacts.s3.amazonaws.com/Images/Prod/PEGACLSA74V1P_Current.png" 
+                         alt="Pega CLSA Logo" 
+                         class="h-36 zoom-pulse-animation">
+                    <!-- Profile Picture -->
+                    <img src="https://placehold.co/150x150/1e293b/d1d5db?text=PA" 
+                         alt="Profile Picture" 
+                         class="w-36 h-36 rounded-full border-4 border-blue-500 object-cover shadow-xl">
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">Hello, I'm Lucky Shobhnani!</h1>
+                <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-2xl mx-auto">
+                    <span id="typing-text" class="text-gradient font-semibold"></span>
+                    <span class="typing-cursor"></span>
+                </p>
+                <div class="flex justify-center space-x-6 text-3xl">
+                  
+
+                    <a href="https://www.linkedin.com/in/your-username" target="_blank" class="text-slate-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/your-username" target="_blank" class="text-slate-400 hover:text-white transition-colors duration-300" aria-label="Twitter Profile">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="bg-slate-800 p-8 rounded-lg shadow-xl mb-12">
+                <h2 class="text-4xl font-bold mb-6 text-blue-500">About Me</h2>
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    I am a Pega Certified Lead System Architect with over 8 years of experience in designing and implementing enterprise-grade solutions on the Pega platform. My expertise spans across diverse domains like Banking, Finance, and Healthcare. I specialize in Pega Customer Service, focusing on Digital Messaging, AI-powered automation, and modern UI development using Constellation and Theme Cosmos. I have a strong command of integration patterns, performance optimization, and leading development teams to ensure high-quality, scalable solutions.
+                </p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="mb-12">
+                <h2 class="text-4xl font-bold mb-8 text-white text-center">My Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+                    <!-- Pega Certification Cards -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-certificate text-4xl text-yellow-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Pega CLSA</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-certificate text-4xl text-yellow-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Pega CSSA</p>
+                    </div>
+                    <!-- Pega & Tech Skills -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-cogs text-4xl text-sky-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Pega Customer Service</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-robot text-4xl text-green-500 mb-2"></i>
+                        <p class="text-lg font-semibold">AI/Knowledge Buddy</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-laptop-code text-4xl text-orange-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Pega Constellation UI</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-exchange-alt text-4xl text-blue-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Integrations (REST/SOAP)</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <i class="fab fa-java text-4xl text-red-500 mb-2"></i>
+                        <p class="text-lg font-semibold">Java</p>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                        <div class="flex justify-center space-x-2 mb-2">
+                            <i class="fab fa-html5 text-4xl text-orange-500"></i>
+                            <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+                            <i class="fab fa-js text-4xl text-yellow-500"></i>
+                        </div>
+                        <p class="text-lg font-semibold">Front End Developer</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+             <!-- Projects Section -->
+            <section id="projects" class="mb-12">
+                <h2 class="text-4xl font-bold mb-8 text-white text-center">My Projects</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1: Financial Client Customer Service Chat -->
+                    <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">Customer Service Chat Implementation</h3>
+                        <p class="text-slate-400 mb-4">Led the implementation of Pega Customer Service, focusing on digital messaging channels like WhatsApp and Facebook Messenger for a financial client.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role: Pega Developer</li>
+                            <li>Client: MCM</li>
+                            <li>Version: Pega Infinity 24.2</li>
+                        </ul>
+                    </div>
+                    <!-- Project Card 2: Knowledge Buddy POC -->
+                  
+                    <!-- Project Card 3: StepChange PAP Redesign -->
+                    <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">StepChange PAP Redesign</h3>
+                        <p class="text-slate-400 mb-4">Redesigned the Personal Action Plan (PAP) process to an asynchronous approach, improving performance and resolving memory bottlenecks on web nodes.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role: Pega Developer</li>
+                            <li>Client: CMC</li>
+                            <li>Version: Pega 8.6/8.8</li>
+                        </ul>
+                    </div>
+                    <!-- Project Card 4: CMC Upgrade to 8.6 -->
+                    <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">CMC Upgrade to 8.6</h3>
+                        <p class="text-slate-400 mb-4">Enhanced a Pega CRM application by migrating legacy Java functions to Pega, developing new functionalities, and configuring inbound email listeners.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role:Pega Developer</li>
+                            <li>Client: CMC</li>
+                            <li>Version: Pega 8.6</li>
+                        </ul>
+                    </div>
+                    <!-- Project Card 5: Knowledge Management Component -->
+                    <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">Pega Knowledge Management Component</h3>
+                        <p class="text-slate-400 mb-4">Developed and implemented the knowledge management component for Pega's Customer Service product, enabling agents to quickly access and utilize relevant information.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role: Pega Product Team Developer</li>
+                            <li>Client:Pega Product Team</li>
+                            <li>Version: Pega 8.2/8.3/8.6</li>
+                        </ul>
+                    </div>
+                      <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">Knowledge Buddy POC</h3>
+                        <p class="text-slate-400 mb-4">Developed a Proof of Concept for Knowledge Buddy, showcasing dynamic checklist generation using AI vector indexing and prompt engineering for PegaWorld 2024.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role:Pega Developer</li>
+                            <li>Client:Aaseya IT Services</li>
+                            <li>Version:Pega Infinity 23</li>
+                        </ul>
+                    </div>
+                    <!-- New Project Card: Hartmann PEGA implementation -->
+                    <div class="group bg-slate-800 p-6 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+                        <h3 class="text-2xl font-semibold mb-2 text-blue-500">Hartmann PEGA Implementation</h3>
+                        <p class="text-slate-400 mb-4">Pega helped Hartmann, a medical equipment company, to track material data (Production plant and Sales Organization) and link it to an external source, ensuring accurate record-keeping.</p>
+                        <ul class="text-slate-400 text-sm list-disc list-inside">
+                            <li>Role:Pega Developer</li>
+                            <li>Client:Credit Suisse</li>
+                            <li>Version:Pega 7.3</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Dino Game Section -->
+            <section id="dino-game" class="mb-12">
+                <h2 class="text-4xl font-bold mb-8 text-white text-center">Life is all about FUN in small things.!!</h2>
+                <div class="bg-slate-800 p-4 rounded-lg shadow-xl max-w-2xl mx-auto text-center">
+                    <p class="text-lg text-slate-300 mb-4">If you are bored after reading about me, please have fun!!</p>
+                    <canvas id="dino-game-canvas" width="600" height="200" class="w-full max-w-full h-auto rounded-lg"></canvas>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <p id="dino-score" class="text-2xl font-bold text-yellow-400">Score: 0</p>
+                        <button id="dino-restart-button" class="hidden bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 text-lg">
+                            Restart Game
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Contact Section -->
+            <section id="contact" class="text-center bg-slate-800 p-8 rounded-lg shadow-xl">
+                <h2 class="text-4xl font-bold mb-4 text-blue-500">Let's Connect</h2>
+                <p class="text-slate-300 mb-6 text-lg max-w-2xl mx-auto">
+                    I'm currently open to new opportunities and collaborations. Feel free to reach out to me!
+                </p>
+                <a href="mailto:your.email@example.com" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 text-xl">
+                    <i class="fas fa-paper-plane mr-2"></i> Say Hello!
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 p-6 text-center text-slate-400 mt-12">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+    
+    <!-- JavaScript for Dynamic Effects and Game -->
+    <script>
+        // JavaScript for the dynamic typing effect in the hero section.
+        document.addEventListener('DOMContentLoaded', () => {
+            const textElement = document.getElementById('typing-text');
+            const phrases = [
+                "Strategic Problem Solver",
+                "A Pega Certified Lead System Architect.",
+                "Experienced in Building Enterprise Solutions",
+                "Passionate Learner & Innovator"
+                
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex--);
+                    typingSpeed = 50;
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex++);
+                    typingSpeed = 100;
+                }
+
+                if (!isDeleting && charIndex === currentPhrase.length + 1) {
+                    isDeleting = true;
+                    typingSpeed = 2000; // Pause at end of sentence
+                } else if (isDeleting && charIndex === -1) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+
+                setTimeout(type, typingSpeed);
+            }
+
+            type();
+        });
+
+        // JavaScript for the Dino Jump game
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('dino-game-canvas');
+            const ctx = canvas.getContext('2d');
+            const scoreDisplay = document.getElementById('dino-score');
+            const restartButton = document.getElementById('dino-restart-button');
+
+            const dino = {
+                x: 50,
+                y: 150,
+                width: 20,
+                height: 40,
+                color: '#3b82f6',
+                isJumping: false,
+                jumpHeight: 50,
+                jumpSpeed: 5,
+                velocityY: 0
+            };
+
+            let obstacles = [];
+            let gameSpeed = 3;
+            let score = 0;
+            let frame = 0;
+            let isGameOver = false;
+
+            function drawDino() {
+                ctx.fillStyle = dino.color;
+                ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+            }
+
+            function createObstacle() {
+                const width = 10 + Math.random() * 15;
+                const height = 20 + Math.random() * 20;
+                obstacles.push({
+                    x: canvas.width,
+                    y: canvas.height - height,
+                    width,
+                    height,
+                    color: '#64748b'
+                });
+            }
+
+            function drawObstacles() {
+                obstacles.forEach(obstacle => {
+                    ctx.fillStyle = obstacle.color;
+                    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                });
+            }
+
+            function update() {
+                if (isGameOver) return;
+
+                frame++;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Update Dino
+                if (dino.isJumping) {
+                    dino.y -= dino.velocityY;
+                    dino.velocityY -= 0.5;
+                    if (dino.y >= canvas.height - dino.height) {
+                        dino.isJumping = false;
+                        dino.y = canvas.height - dino.height;
+                        dino.velocityY = 0;
+                    }
+                }
+                
+                // Update obstacles
+                if (frame % 150 === 0) {
+                    createObstacle();
+                }
+                obstacles.forEach(obstacle => {
+                    obstacle.x -= gameSpeed;
+                });
+                obstacles = obstacles.filter(obstacle => obstacle.x + obstacle.width > 0);
+
+                // Collision detection
+                obstacles.forEach(obstacle => {
+                    if (dino.x < obstacle.x + obstacle.width &&
+                        dino.x + dino.width > obstacle.x &&
+                        dino.y < obstacle.y + obstacle.height &&
+                        dino.y + dino.height > obstacle.y) {
+                        gameOver();
+                    }
+                });
+
+                // Update score and speed
+                score++;
+                scoreDisplay.textContent = `Score: ${score}`;
+                if (score % 500 === 0) {
+                    gameSpeed += 0.5;
+                }
+
+                // Draw
+                drawDino();
+                drawObstacles();
+
+                // Ground line
+                ctx.fillStyle = '#64748b';
+                ctx.fillRect(0, canvas.height - 2, canvas.width, 2);
+
+                requestAnimationFrame(update);
+            }
+
+            function jump() {
+                if (!dino.isJumping && !isGameOver) {
+                    dino.isJumping = true;
+                    dino.velocityY = dino.jumpSpeed * 2;
+                } else if (isGameOver) {
+                    restartGame();
+                }
+            }
+            
+            function gameOver() {
+                isGameOver = true;
+                scoreDisplay.textContent = `Game Over! Final Score: ${score}`;
+                restartButton.classList.remove('hidden');
+            }
+            
+            function restartGame() {
+                isGameOver = false;
+                dino.isJumping = false;
+                dino.y = canvas.height - dino.height;
+                dino.velocityY = 0;
+                obstacles = [];
+                score = 0;
+                frame = 0;
+                gameSpeed = 3;
+                restartButton.classList.add('hidden');
+                update();
+            }
+
+            // Event listeners for jump
+            window.addEventListener('keydown', (e) => {
+                if (e.code === 'Space') {
+                    jump();
+                }
+            });
+
+            canvas.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                jump();
+            });
+
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                jump();
+            });
+
+            restartButton.addEventListener('click', restartGame);
+            
+            // Initial call to start the game loop
+            update();
+        });
+    </script>
+</body>
+</html>
